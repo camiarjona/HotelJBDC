@@ -10,7 +10,7 @@ public class ClientDAOImpl implements ClientDAO {
 
     private final Connection connection;
 
-    public ClientDAOImpl(Connection connection) throws SQLException {
+    public ClientDAOImpl() throws SQLException {
         this.connection = DatabaseConnection.getInstance().getConnection();
     }
 
