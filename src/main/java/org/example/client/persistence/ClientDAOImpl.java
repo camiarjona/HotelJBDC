@@ -67,6 +67,19 @@ public class ClientDAOImpl implements ClientDAO {
         }
     }
 
+    public boolean updateClient(Client client) throws SQLException {
+        boolean actualizado;
+        String sql = "UPDATE clientes SET nombre = ?, email = ? WHERE id = ?;";
+
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, client.getName());
+            ps.setString(2, client.getEmail());
+            ps.setLong(3, client.getId());
+            actualizado = ps.executeUpdate() > 0;
+        }
+        return actualizado;
+    }
+
     @Override
     public List<Client> findAll() throws SQLException {
         List<Client> clients = new ArrayList<>();

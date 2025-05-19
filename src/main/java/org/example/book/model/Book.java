@@ -29,6 +29,9 @@ public class Book {
         this.checkOut = checkOut;
     }
 
+    public Book() {
+    }
+
     public Long getId() {
         return id;
     }
